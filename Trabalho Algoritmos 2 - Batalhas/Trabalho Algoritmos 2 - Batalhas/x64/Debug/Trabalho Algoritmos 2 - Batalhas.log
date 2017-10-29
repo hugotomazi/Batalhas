@@ -1,0 +1,5 @@
+﻿  stdafx.cpp
+  Trabalho Algoritmos 2 - Batalhas.cpp
+c:\users\hugo tomazi\documents\visual studio 2017\projects\trabalho algoritmos 2 - batalhas\trabalho algoritmos 2 - batalhas\trabalho algoritmos 2 - batalhas.cpp(13): warning C4244: 'argumento': conversão de 'time_t' para 'unsigned int', possível perda de dados
+  Trabalho Algoritmos 2 - Batalhas.vcxproj -> c:\users\hugo tomazi\documents\visual studio 2017\Projects\Trabalho Algoritmos 2 - Batalhas\x64\Debug\Trabalho Algoritmos 2 - Batalhas.exe
+  Trabalho Algoritmos 2 - Batalhas.vcxproj -> c:\users\hugo tomazi\documents\visual studio 2017\Projects\Trabalho Algoritmos 2 - Batalhas\x64\Debug\Trabalho Algoritmos 2 - Batalhas.pdb (Partial PDB)
