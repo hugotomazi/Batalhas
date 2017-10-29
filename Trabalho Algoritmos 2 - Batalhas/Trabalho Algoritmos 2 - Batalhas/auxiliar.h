@@ -21,9 +21,25 @@ int mediana(int numero)
 	return numero / 2;
 }
 
-int convertePosicao(int i, int j, int tamanhoLinha)
+int convertePosicao(int numi, int numj, int tamanhoLinha)
 {
-	return (i*tamanhoLinha) + j;
+	//return (i*tamanhoLinha) + j;
+	int posicao = 0;
+	for (int i = 0; i < tamanhoLinha; i++)
+	{
+		for (int j = 0; j < tamanhoLinha; j++)
+		{
+			if (i != numi || j != numj)
+			{
+				posicao++;
+			}
+			else {
+				i = tamanhoLinha;
+				j = tamanhoLinha;
+			}
+		}
+	}
+	return posicao;
 }
 
 void converteIJ(int posicao, int tamanhoI, int tamanhoJ, int &varI, int &varJ)

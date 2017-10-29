@@ -16,6 +16,7 @@ int main()
 	mapa_posicionarInimigos(mapaPrincipal);
 	
 	mapa_exibirMapa(mapaPrincipal);
+	//cout << endl << convertePosicao(2, 0, TAMANHO_MAPA_X) << endl;
     return 0;
 }
 

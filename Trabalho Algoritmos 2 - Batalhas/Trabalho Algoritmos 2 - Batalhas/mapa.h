@@ -137,9 +137,9 @@ bool validaPosicaoInicialInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int
 	if (posicao != 0) posicao--;
 
 	converteIJ(posicao, TAMANHO_MAPA_X, TAMANHO_MAPA_Y, i, j);
-
+	
 	mapa_posicaoJogador(mapa, posJogI, posJogJ);
-	posicaoJogador = convertePosicao(posJogI, posJogJ, TAMANHO_MAPA_X-1);
+	posicaoJogador = convertePosicao(posJogI, posJogJ, TAMANHO_MAPA_X);
 
 	if (posJogI == -1 && posJogJ == -1)
 	{
@@ -159,17 +159,17 @@ bool validaPosicaoInicialInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int
 		return false;
 	}
 	
-	if ((posicao == (posicaoJogador - 1)) || (posicao == (posicaoJogador + 1)) || (posicao == (posicaoJogador + TAMANHO_MAPA_X)) || (posicao == (posicaoJogador - TAMANHO_MAPA_X)) || (posicao == (posicaoJogador + TAMANHO_MAPA_X + 1)) || (posicao == (posicaoJogador + TAMANHO_MAPA_X - 1)) || (posicao == (posicaoJogador - TAMANHO_MAPA_X + 1)) || (posicao == (posicaoJogador - TAMANHO_MAPA_X - 1)))
+	if ((posicao == (convertePosicao(posJogI, posJogJ-1, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI, posJogJ+1, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI-1, posJogJ, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI+1, posJogJ, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI-1, posJogJ-1, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI-1, posJogJ+1, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI+1, posJogJ-1, TAMANHO_MAPA_X))) || (posicao == (convertePosicao(posJogI+1, posJogJ+1, TAMANHO_MAPA_X))))
 	{
 		erro = "O inimigo não pode iniciar do lado do jogador.";
 		return false;
 	}
+	//cout << endl << posicao << " " << i << " " << j << endl << posicaoJogador << " " << posJogI << " " << posJogJ << endl;
 	return true;
 }
 
 void mapa_posicionarInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
-	int indicadorInimigo = 0;
 	string erro = "";
 	//gerarNumerosAleatorios(posicaoAleatoria, QUANTIDADE_INIMIGOS, 0, TAMANHO_MAPA_X*TAMANHO_MAPA_Y);
 
@@ -177,15 +177,16 @@ void mapa_posicionarInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 	{
 		int x = numeroAleatoio(0, TAMANHO_MAPA_X - 1),
 			y = numeroAleatoio(0, TAMANHO_MAPA_Y-1),
-			posicao = convertePosicao(x, y, TAMANHO_MAPA_X-1);
+			posicao = convertePosicao(x, y, TAMANHO_MAPA_X);
 
-		while (!validaPosicaoInicialInimigos(mapa, posicao, erro))
+		while (!validaPosicaoInicialInimigos(mapa, posicao, erro) || mapa[x][y].ocupadorPosicao != 0)
 		{
 			x = numeroAleatoio(0, TAMANHO_MAPA_X-1);
 			y = numeroAleatoio(0, TAMANHO_MAPA_Y-1);
-			posicao = convertePosicao(x, y, TAMANHO_MAPA_X-1);
+			posicao = convertePosicao(x, y, TAMANHO_MAPA_X);
 			//cout << erro << endl;
 		}
+		//cout << endl << x << " " << y;
 		mapa[x][y].ocupadorPosicao = 2;
 		mapa[x][y].identificadorInimigo = i;
 	}
