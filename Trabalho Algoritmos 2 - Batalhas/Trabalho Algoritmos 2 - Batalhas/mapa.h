@@ -11,15 +11,20 @@
 using namespace std;
 
 struct Mapa {
-	int ocupadorPosicao;
 	/*
 	0 - Vazio
 	1 - Jogador
 	2 - Inimigo
 	*/
-	int identificadorInimigo;
+	int ocupadorPosicao;
+
 	//-1 Vazio
+	int identificadorInimigo;
+	
+	int posicaoCelula;
 };
+
+
 
 void mapa_exibirMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
@@ -106,6 +111,7 @@ void mapa_gerarMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 				mapa[i][j].ocupadorPosicao = 0;
 			}
 			mapa[i][j].identificadorInimigo = -1;
+			mapa[i][j].posicaoCelula = convertePosicao(i, j, TAMANHO_MAPA_X);
 		}
 	}
 }
@@ -190,6 +196,48 @@ void mapa_posicionarInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 		mapa[x][y].ocupadorPosicao = 2;
 		mapa[x][y].identificadorInimigo = i;
 	}
+}
+
+int mapa_procuraInimigo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)
+{
+	for (int i = 0; i < TAMANHO_MAPA_X; i++)
+	{
+		for (int j = 0; j < TAMANHO_MAPA_Y; j++)
+		{
+			if (mapa[i][j].identificadorInimigo == identificadorInimigo)
+			{
+				return mapa[i][j].posicaoCelula;
+			}
+		}
+	}
+	return -1;
+}
+
+int mapa_quantidadeInimigosAtivos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
+{
+	int contador = 0;
+	for (int i = 0; i < TAMANHO_MAPA_X; i++)
+	{
+		for (int j = 0; j < TAMANHO_MAPA_Y; j++)
+		{
+			if (mapa[i][j].ocupadorPosicao == 2)
+				contador++;
+		}
+	}
+	return contador;
+}
+
+int mapa_conf_quantidadeInimigos()
+{
+	return QUANTIDADE_INIMIGOS;
+}
+
+void mapa_preparaInicioJogo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int &posX, int &posY)
+{
+	mapa_gerarMapa(mapa);
+	mapa_posicionarInimigos(mapa);
+	int posInimigo = mapa_procuraInimigo(mapa, 1);
+	converteIJ(posInimigo, TAMANHO_MAPA_X, TAMANHO_MAPA_Y, posX, posY);
 }
 
 #endif

@@ -6,16 +6,22 @@
 #include <string>
 #include "mapa.h"
 #include "auxiliar.h"
+#include "IAInimigosTabuleiro.h"
+#include "Console.h"
+#include "Jogo.h"
 using namespace std;
 
 int main()
 {
 	srand(time(NULL));
 	Mapa mapaPrincipal[TAMANHO_MAPA_X][TAMANHO_MAPA_Y];
-	mapa_gerarMapa(mapaPrincipal);
-	mapa_posicionarInimigos(mapaPrincipal);
-	
-	mapa_exibirMapa(mapaPrincipal);
+	int posJogadorAtualX = -1,
+		posJogadorAtualY = -1;
+	mapa_preparaInicioJogo(mapaPrincipal, posJogadorAtualX, posJogadorAtualY);
+	iniciaJogo(mapaPrincipal);
+
+	//system("cls");
+	//mapa_exibirMapa(mapaPrincipal);
 	//cout << endl << convertePosicao(2, 0, TAMANHO_MAPA_X) << endl;
     return 0;
 }
