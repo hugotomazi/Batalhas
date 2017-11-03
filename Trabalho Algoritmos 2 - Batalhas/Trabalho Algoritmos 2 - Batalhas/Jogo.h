@@ -3,6 +3,7 @@
 #define JOGO_H
 
 #include <iostream>
+#include <limits>
 #include "mapa.h"
 #include "Console.h"
 #include "IAInimigosTabuleiro.h"
@@ -10,7 +11,14 @@
 void iniciaJogo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
 	bool jogando = true;
-	int inimigoAtual = 1;
+	int inimigoAtual = 1,
+		quantidadeInimigosTabuleiro = QUANTIDADE_INIMIGOS,
+		inimigosEmJogo[QUANTIDADE_INIMIGOS];
+
+	for (int i = 0; i < QUANTIDADE_INIMIGOS; i++)
+	{
+		inimigosEmJogo[i] = i + 1;
+	}
 
 	while (jogando)
 	{
@@ -19,18 +27,26 @@ void iniciaJogo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 			posInimigoY = -1;
 		converteIJ(posInimigo, TAMANHO_MAPA_X, TAMANHO_MAPA_Y, posInimigoX, posInimigoY);
 
-		movimentaInimigoAleatoriamente(mapa, mapa[posInimigoX][posInimigoY]);
-
-		console_exibeTabuleiro(mapa, inimigoAtual);
-
-		if (inimigoAtual == QUANTIDADE_INIMIGOS)
+		if (procuraJogador(mapa, mapa[posInimigoX][posInimigoY]))
 		{
-			inimigoAtual = 1;
+			console_iniciaBatalha(mapa, inimigoAtual);
+			//inimigosEmJogo[inimigoAtual - 1] = INT_MAX;
+			inimigosEmJogo[0] = INT_MAX;
+			mapa_destruirInimigo(mapa[posInimigoX][posInimigoY]);
+			quantidadeInimigosTabuleiro--;
+			if (quantidadeInimigosTabuleiro == 0)
+			{
+				jogando = false;
+			}
 		}
 		else {
-			inimigoAtual++;
+			movimentaInimigoAleatoriamente(mapa, mapa[posInimigoX][posInimigoY]);
 		}
-		_sleep(3000);
+
+		console_exibeTabuleiro(mapa, inimigoAtual);
+		inimigoAtual = proximoAJogar(inimigosEmJogo, inimigoAtual);
+		
+		_sleep(1000);
 	}
 }
 #endif

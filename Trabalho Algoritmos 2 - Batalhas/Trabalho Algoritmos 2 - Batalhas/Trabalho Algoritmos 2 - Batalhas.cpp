@@ -18,6 +18,8 @@ int main()
 	int posJogadorAtualX = -1,
 		posJogadorAtualY = -1;
 	mapa_preparaInicioJogo(mapaPrincipal, posJogadorAtualX, posJogadorAtualY);
+	console_exibeTabuleiro(mapaPrincipal, 1);
+	_sleep(1000);
 	iniciaJogo(mapaPrincipal);
 
 	//system("cls");

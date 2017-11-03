@@ -25,20 +25,51 @@ struct Mapa {
 };
 
 
-
+void mapa_destruirInimigo(Mapa &celulaInimigo)
+{
+	celulaInimigo.identificadorInimigo = -1;
+	celulaInimigo.ocupadorPosicao = 0;
+}
 void mapa_exibirMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
+	int linha = 0;
 	for (int k = 0; k < TAMANHO_MAPA_X; k++)
 	{
 		if (k == 0)
 		{
-			cout << "+---------------+";
+			cout << (char)218;
+			for (int l = 0; l < 15; l++)
+			{
+				cout << (char)196;
+			}
+			cout << (char)194;
 		}
 		else {
-			cout << "---------------+";
+			for (int l = 0; l < 15; l++)
+			{
+				cout << (char)196;
+			}
+
+			if (k == TAMANHO_MAPA_X - 1)
+			{
+
+				cout << (char)191;
+			}
+			else {
+				if (linha == 0)
+				{
+					cout << (char)194;
+				}
+				else {
+					cout << (char)197;
+				}
+				
+			}
+			
 		}
 		
 	}
+	linha++;
 	//cout << "----------------+---------------+---------------+---------------+---------------+";
 	for (int i = 0; i < TAMANHO_MAPA_X; i++)
 	{
@@ -49,48 +80,92 @@ void mapa_exibirMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 			{
 				if (j == 0)
 				{
-					cout << "|\t\t|";
+					cout << (char)179 << "\t\t" << (char)179/*(char)179*/;
 				}
 				else {
-					cout << "\t\t|";
+					
+					cout << "\t\t" << (char)179;
 				}
 			}
 			else if (mapa[i][j].ocupadorPosicao == 1)
 			{
 				if (j == 0)
 				{
-					cout << "|\tP\t|";
+					cout << (char)179 << "\tP\t" << (char)179;
 				}
 				else {
-					cout << "\tP\t|";
+					cout << "\tP\t" << (char)179;
 				}
 			}
 			else if (mapa[i][j].ocupadorPosicao == 2)
 			{
 				if (j == 0)
 				{
-					cout << "|\tI" << mapa[i][j].identificadorInimigo << "\t|";
+					cout << (char)179 << "\tI" << mapa[i][j].identificadorInimigo << "\t" << (char)179;
 				}
 				else {
-					cout << "\tI" << mapa[i][j].identificadorInimigo << "\t|";
+					cout << "\tI" << mapa[i][j].identificadorInimigo << "\t" << (char)179;
 				}
 			}
 			
 		}
 		cout << endl;
+		linha++;
 		for (int k = 0; k < TAMANHO_MAPA_X; k++)
 		{
 			if (k == 0)
 			{
-				cout << "+---------------+";
+				if (linha == 6)
+				{
+					cout << (char)192;
+				}
+				else {
+					cout << (char)195;
+				}
+				
+				for (int l = 0; l < 15; l++)
+				{
+					cout << (char)196;
+				}
+				//cout << (char)192;
+				if (linha == 6)
+				{
+					cout << (char)193;
+				}
+				else {
+					cout << (char)197;
+				}
+				
 			}
 			else {
-				cout << "---------------+";
+				for (int l = 0; l < 15; l++)
+				{
+					cout << (char)196;
+				}
+				if (k == TAMANHO_MAPA_X - 1)
+				{
+					if (linha == 6)
+					{
+						cout << (char)217;
+					}
+					else {
+						cout << (char)180;
+					}
+				}
+				else {
+					if (linha == 6)
+					{
+						cout << (char)193;
+					}
+					else {
+						cout << (char)197;
+					}
+				}	
 			}
-
 		}
 		//cout << endl << "----------------+---------------+---------------+---------------+---------------+";
 	}
+	linha++;
 	cout << endl;
 }
 

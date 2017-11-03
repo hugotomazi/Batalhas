@@ -10,18 +10,35 @@
 
 using namespace std;
 
-string console_ajustarLinha()
-{
-	return "\t\t\t\t\t\t\t";
-}
-
 void console_exibeTabuleiro(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)
 {
 	system("cls");
 	system("Color 1C");
-	cout << "+--------------------------------------------------------------------------------------------+" << endl;
-	cout << "|Jogando Atualmente: Inimigo " << identificadorInimigo << "\t|\tQuantidade de Monstros: 0" << "\tInimigos Restantes: " << mapa_quantidadeInimigosAtivos(mapa) << "|" << endl;
-	cout << "+--------------------------------------------------------------------------------------------+" << endl << endl;
+	cout << (char)218;
+	for (int i = 0; i < 92; i++)
+	{
+		if (i == 31)
+		{
+			cout << (char)194;
+		}
+		else {
+			cout << (char)196;
+		}
+	}
+	cout << (char)191 << endl;
+	cout << (char)179 << "Jogando Atualmente: Inimigo " << identificadorInimigo << "\t" << (char)179 << "\tQuantidade de Monstros: 0" << "\tInimigos Restantes: " << mapa_quantidadeInimigosAtivos(mapa) << (char)179 << endl;
+	cout << (char)192;
+	for (int i = 0; i < 92; i++)
+	{
+		if (i == 31)
+		{
+			cout << (char)193;
+		}
+		else {
+			cout << (char)196;
+		}
+	}
+	cout << (char)217 << endl;
 	mapa_exibirMapa(mapa);
 	cout << endl;
 	
