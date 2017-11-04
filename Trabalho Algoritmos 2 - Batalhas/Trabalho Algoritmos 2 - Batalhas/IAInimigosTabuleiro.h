@@ -175,5 +175,82 @@ int proximoAJogar(int jogadoresAtivos[QUANTIDADE_INIMIGOS], int jogadorAtual)
 	return jogadoresAtivos[0];
 }
 
+bool movimentaInimigoRecursivamente(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], Mapa celulaInimigo, int profundidade=0)
+{
+	int x = -1,
+		y = -1;
+	converteIJ(celulaInimigo.posicaoCelula, TAMANHO_MAPA_X, TAMANHO_MAPA_Y, x, y);
+	
+	int prof = profundidade + 1;
+	/*if (((x != 0) && (mapa[x - 1][y].ocupadorPosicao == 1)) || ((x != TAMANHO_MAPA_X) && (mapa[x+1][y].ocupadorPosicao == 1) || ()))
+	{
+		return true
+	}*/
+	if (mapa[x][y].ocupadorPosicao == 1)
+	{
+		return true;
+	}
+	else {
+		if ((x != 0) && ((mapa[x - 1][y].ocupadorPosicaoTemporario == -1) && (mapa[x - 1][y].ocupadorPosicao != 2)))
+		{
+			mapa[x - 1][y].ocupadorPosicaoTemporario = 2;
+			movimentaInimigoRecursivamente(mapa, mapa[x-1][y], prof);
+			if (prof == 1)
+			{
+				mapa[x - 1][y].identificadorInimigo = celulaInimigo.identificadorInimigo;
+				mapa[x - 1][y].ocupadorPosicao = 2;
+				celulaInimigo.identificadorInimigo = -1;
+				celulaInimigo.ocupadorPosicao = 0;
+			}
+			mapa[x - 1][y].ocupadorPosicaoTemporario = -1;
+
+		}
+		else if((x != TAMANHO_MAPA_X-1) && ((mapa[x + 1][y].ocupadorPosicaoTemporario == -1) && (mapa[x + 1][y].ocupadorPosicao != 2))) {
+			mapa[x + 1][y].ocupadorPosicaoTemporario = 2;
+			movimentaInimigoRecursivamente(mapa, mapa[x+1][y], prof);
+			if (prof == 1)
+			{
+				mapa[x + 1][y].identificadorInimigo = celulaInimigo.identificadorInimigo;
+				mapa[x + 1][y].ocupadorPosicao = 2;
+				celulaInimigo.identificadorInimigo = -1;
+				celulaInimigo.ocupadorPosicao = 0;
+			}
+			mapa[x + 1][y].ocupadorPosicaoTemporario = -1;
+		}
+		else if ((y != 0) && ((mapa[x][y - 1].ocupadorPosicaoTemporario == -1) && (mapa[x][y - 1].ocupadorPosicao != 2))) {
+			mapa[x][y - 1].ocupadorPosicaoTemporario = 2;
+			movimentaInimigoRecursivamente(mapa, mapa[x][y-1], prof);
+			if (prof == 1)
+			{
+				mapa[x][y-1].identificadorInimigo = celulaInimigo.identificadorInimigo;
+				mapa[x][y-1].ocupadorPosicao = 2;
+				celulaInimigo.identificadorInimigo = -1;
+				celulaInimigo.ocupadorPosicao = 0;
+			}
+			mapa[x][y - 1].ocupadorPosicaoTemporario = -1;
+		}
+		else if ((y != TAMANHO_MAPA_X-1) && ((mapa[x][y + 1].ocupadorPosicaoTemporario == -1) && (mapa[x][y + 1].ocupadorPosicao != 2))) {
+			mapa[x][y + 1].ocupadorPosicaoTemporario = 2;
+			movimentaInimigoRecursivamente(mapa, mapa[x][y+1], prof);
+			if (prof == 1)
+			{
+				mapa[x][y+1].identificadorInimigo = celulaInimigo.identificadorInimigo;
+				mapa[x][y+1].ocupadorPosicao = 2;
+				celulaInimigo.identificadorInimigo = -1;
+				celulaInimigo.ocupadorPosicao = 0;
+			}
+			mapa[x][y + 1].ocupadorPosicaoTemporario = -1;
+		}
+
+		if (prof == 1)
+		{
+			mapa[x][y].identificadorInimigo = -1;
+			mapa[x][y].ocupadorPosicao = 0;
+			mapa[x][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
+			
+		}
+
+	}
+}
 
 #endif

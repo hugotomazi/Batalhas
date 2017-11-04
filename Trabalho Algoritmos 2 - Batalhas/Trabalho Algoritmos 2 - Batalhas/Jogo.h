@@ -40,7 +40,8 @@ void iniciaJogo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 			}
 		}
 		else {
-			movimentaInimigoAleatoriamente(mapa, mapa[posInimigoX][posInimigoY]);
+			//movimentaInimigoAleatoriamente(mapa, mapa[posInimigoX][posInimigoY]);
+			movimentaInimigoRecursivamente(mapa, mapa[posInimigoX][posInimigoY]);
 		}
 
 		console_exibeTabuleiro(mapa, inimigoAtual);

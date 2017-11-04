@@ -70,4 +70,5 @@ void ordenaVetor(T vetor[], int tamanhoVetor)
 		}
 	}
 }
+
 #endif

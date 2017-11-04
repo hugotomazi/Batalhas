@@ -18,10 +18,14 @@ struct Mapa {
 	*/
 	int ocupadorPosicao;
 
-	//-1 Vazio
+	//-1 - Vazio
 	int identificadorInimigo;
 	
 	int posicaoCelula;
+	//-1 - Vazio
+	int ocupadorPosicaoTemporario;
+	//-1 - vazio
+	int rastro;
 };
 
 
@@ -187,6 +191,8 @@ void mapa_gerarMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 			}
 			mapa[i][j].identificadorInimigo = -1;
 			mapa[i][j].posicaoCelula = convertePosicao(i, j, TAMANHO_MAPA_X);
+			mapa[i][j].ocupadorPosicaoTemporario = -1;
+			mapa[i][j].rastro = -1;
 		}
 	}
 }
@@ -270,6 +276,7 @@ void mapa_posicionarInimigos(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 		//cout << endl << x << " " << y;
 		mapa[x][y].ocupadorPosicao = 2;
 		mapa[x][y].identificadorInimigo = i;
+		mapa[x][y].rastro = i * 10;
 	}
 }
 
