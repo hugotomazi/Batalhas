@@ -191,63 +191,71 @@ bool movimentaInimigoRecursivamente(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], M
 		return true;
 	}
 	else {
-		if ((x != 0) && ((mapa[x - 1][y].ocupadorPosicaoTemporario == -1) && (mapa[x - 1][y].ocupadorPosicao != 2)))
+		if ((x != 0) && ((mapa[x - 1][y].ocupadorPosicaoTemporario != celulaInimigo.identificadorInimigo*10) && (mapa[x - 1][y].ocupadorPosicao != 2)))
 		{
-			mapa[x - 1][y].ocupadorPosicaoTemporario = 2;
+			mapa[x - 1][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 			movimentaInimigoRecursivamente(mapa, mapa[x-1][y], prof);
+			mapa[x - 1][y].ocupadorPosicaoTemporario = -1;
 			if (prof == 1)
 			{
 				mapa[x - 1][y].identificadorInimigo = celulaInimigo.identificadorInimigo;
 				mapa[x - 1][y].ocupadorPosicao = 2;
+				mapa[x - 1][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 				celulaInimigo.identificadorInimigo = -1;
 				celulaInimigo.ocupadorPosicao = 0;
 			}
-			mapa[x - 1][y].ocupadorPosicaoTemporario = -1;
-
+			//mapa[x - 1][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 		}
-		else if((x != TAMANHO_MAPA_X-1) && ((mapa[x + 1][y].ocupadorPosicaoTemporario == -1) && (mapa[x + 1][y].ocupadorPosicao != 2))) {
-			mapa[x + 1][y].ocupadorPosicaoTemporario = 2;
+		else if((x != TAMANHO_MAPA_X-1) && ((mapa[x + 1][y].ocupadorPosicaoTemporario != celulaInimigo.identificadorInimigo * 10) && (mapa[x + 1][y].ocupadorPosicao != 2))) {
+			mapa[x + 1][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 			movimentaInimigoRecursivamente(mapa, mapa[x+1][y], prof);
+			mapa[x + 1][y].ocupadorPosicaoTemporario = -1;
 			if (prof == 1)
 			{
 				mapa[x + 1][y].identificadorInimigo = celulaInimigo.identificadorInimigo;
 				mapa[x + 1][y].ocupadorPosicao = 2;
+				mapa[x + 1][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 				celulaInimigo.identificadorInimigo = -1;
 				celulaInimigo.ocupadorPosicao = 0;
 			}
-			mapa[x + 1][y].ocupadorPosicaoTemporario = -1;
+			//mapa[x + 1][y].ocupadorPosicaoTemporario = -1;
+			
 		}
-		else if ((y != 0) && ((mapa[x][y - 1].ocupadorPosicaoTemporario == -1) && (mapa[x][y - 1].ocupadorPosicao != 2))) {
-			mapa[x][y - 1].ocupadorPosicaoTemporario = 2;
+		else if ((y != 0) && ((mapa[x][y - 1].ocupadorPosicaoTemporario != celulaInimigo.identificadorInimigo * 10) && (mapa[x][y - 1].ocupadorPosicao != 2))) {
+			mapa[x][y - 1].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 			movimentaInimigoRecursivamente(mapa, mapa[x][y-1], prof);
+			mapa[x][y - 1].ocupadorPosicaoTemporario = -1;
 			if (prof == 1)
 			{
 				mapa[x][y-1].identificadorInimigo = celulaInimigo.identificadorInimigo;
 				mapa[x][y-1].ocupadorPosicao = 2;
+				mapa[x][y - 1].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 				celulaInimigo.identificadorInimigo = -1;
 				celulaInimigo.ocupadorPosicao = 0;
 			}
-			mapa[x][y - 1].ocupadorPosicaoTemporario = -1;
+			//mapa[x][y - 1].ocupadorPosicaoTemporario = -1;
+			
 		}
-		else if ((y != TAMANHO_MAPA_X-1) && ((mapa[x][y + 1].ocupadorPosicaoTemporario == -1) && (mapa[x][y + 1].ocupadorPosicao != 2))) {
-			mapa[x][y + 1].ocupadorPosicaoTemporario = 2;
+		else if ((y != TAMANHO_MAPA_X-1) && ((mapa[x][y + 1].ocupadorPosicaoTemporario != celulaInimigo.identificadorInimigo * 10) && (mapa[x][y + 1].ocupadorPosicao != 2))) {
+			mapa[x][y + 1].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 			movimentaInimigoRecursivamente(mapa, mapa[x][y+1], prof);
+			mapa[x][y + 1].ocupadorPosicaoTemporario = -1;
 			if (prof == 1)
 			{
 				mapa[x][y+1].identificadorInimigo = celulaInimigo.identificadorInimigo;
 				mapa[x][y+1].ocupadorPosicao = 2;
+				mapa[x][y + 1].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 				celulaInimigo.identificadorInimigo = -1;
 				celulaInimigo.ocupadorPosicao = 0;
 			}
-			mapa[x][y + 1].ocupadorPosicaoTemporario = -1;
+			
+			//mapa[x][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
 		}
 
 		if (prof == 1)
 		{
 			mapa[x][y].identificadorInimigo = -1;
 			mapa[x][y].ocupadorPosicao = 0;
-			mapa[x][y].ocupadorPosicaoTemporario = celulaInimigo.identificadorInimigo * 10;
-			
 		}
 
 	}
