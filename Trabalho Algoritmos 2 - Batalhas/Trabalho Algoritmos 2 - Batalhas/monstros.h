@@ -11,105 +11,111 @@ struct monstro{
 	string nomeMonstro;
 	int hp;
 	int level;
-	string tipo;
-	string nomeAtaque1;
-	string nomeAtaque2;
-	string nomeAtaque3;
-	string nomeAtaque4;
+	Tipo elemento;
+	poder poderes[4];
 };
 
 void monstro_inicializarmonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, monstro &tipo4, monstro &tipo5, monstro &tipo6, monstro &tipo7, monstro &tipo8, monstro &tipo9, monstro &tipo10)
 {
 	
+	Tipo fogo, agua, vegetal, raio;
+
+	poder bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas; //Tipos fogo
+	poder jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica; //Tipos água
+	poder folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia; //Tipos vegetais
+	poder choque_do_trovao, investida_relampago, wave_thunder, whild_charger; //Tipos trovão
+
+	poder_inicializarPoder(bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas, jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica, folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia, choque_do_trovao, investida_relampago, wave_thunder, whild_charger);
+	tipo_inicializarTipos(fogo, agua, vegetal, raio);
 	tipo1.nomeMonstro = "Tangath Toborn";
 	tipo1.hp = 100;
 	tipo1.level = 50;
-	tipo1.tipo = "fogo";
-	tipo1.nomeAtaque1 = "bola de fogo";
-	tipo1.nomeAtaque2 = "chama neném";
-	tipo1.nomeAtaque3 = "mega blaster";
-	tipo1.nomeAtaque4 = "tornado de chamas";
+	tipo1.elemento = fogo;
+	tipo1.poderes[0] = bola_de_fogo;
+	tipo1.poderes[1] = chama_nenem;
+	tipo1.poderes[2] = mega_blaster;
+	tipo1.poderes[3] = tornado_de_chamas;
 
 	tipo2.nomeMonstro = "Maxxor";
 	tipo2.hp = 100;
 	tipo2.level = 50;
-	tipo2.tipo = "fogo";
-	tipo2.nomeAtaque1 = "bola de fogo";
-	tipo2.nomeAtaque2 = "chama neném";
-	tipo2.nomeAtaque3 = "mega blaster";
-	tipo2.nomeAtaque4 = "tornado de chamas";
+	tipo2.elemento = fogo;
+	tipo2.poderes[0] = bola_de_fogo;
+	tipo2.poderes[1] = chama_nenem;
+	tipo2.poderes[2] = mega_blaster;
+	tipo2.poderes[3] = tornado_de_chamas;
 
 	tipo3.nomeMonstro = "Intress";
 	tipo3.hp = 100;
 	tipo3.level = 50;
-	tipo3.tipo = "agua";
-	tipo3.nomeAtaque1 = "jato de agua";
-	tipo3.nomeAtaque2 = "bomba de agua";
-	tipo3.nomeAtaque3 = "mega blaster";
-	tipo3.nomeAtaque4 = "hiper bomba aquatica";
+	tipo3.elemento = agua;
+	tipo3.poderes[0] = jato_de_agua;
+	tipo3.poderes[1] = bomba_de_agua;
+	tipo3.poderes[2] = mega_blaster;
+	tipo3.poderes[3] = hiper_bomba_aquatica;
 
 	tipo4.nomeMonstro = "Rellim";
 	tipo4.hp = 100;
 	tipo4.level = 50;
-	tipo4.tipo = "agua";
-	tipo4.nomeAtaque1 = "jato de agua";
-	tipo4.nomeAtaque2 = "bomba de agua";
-	tipo4.nomeAtaque3 = "mega blaster";
-	tipo4.nomeAtaque4 = "hiper bomba aquatica";
+	tipo4.elemento = agua;
+	tipo4.poderes[0] = jato_de_agua;
+	tipo4.poderes[1] = bomba_de_agua;
+	tipo4.poderes[2] = mega_blaster;
+	tipo4.poderes[3] = hiper_bomba_aquatica;
 
 	tipo5.nomeMonstro = "Donmar";
 	tipo5.hp = 100;
 	tipo5.level = 50;
-	tipo5.tipo = "vegetal";
-	tipo5.nomeAtaque1 = "folha navalha";
-	tipo5.nomeAtaque2 = "ataque de espinho";
-	tipo5.nomeAtaque3 = "raio solar";
-	tipo5.nomeAtaque4 = "semente da insonia";
+	tipo5.elemento = vegetal;
+	tipo5.poderes[0] = folha_navalha;
+	tipo5.poderes[1] = ataque_de_espinho;
+	tipo5.poderes[2] = raio_solar;
+	tipo5.poderes[3] = semente_da_insonia;
 
 	tipo6.nomeMonstro = "Intress";
 	tipo6.hp = 100;
 	tipo6.level = 50;
-	tipo6.tipo = "vegetal";
-	tipo6.nomeAtaque1 = "folha navalha";
-	tipo6.nomeAtaque2 = "ataque de espinho";
-	tipo6.nomeAtaque3 = "raio solar";
-	tipo6.nomeAtaque4 = "semente da insonia";
+	tipo6.elemento = vegetal;
+	tipo6.poderes[0] = folha_navalha;
+	tipo6.poderes[1] = ataque_de_espinho;
+	tipo6.poderes[2] = raio_solar;
+	tipo6.poderes[3] = semente_da_insonia;
 
 	tipo7.nomeMonstro = "Ekuud";
 	tipo7.hp = 100;
 	tipo7.level = 50;
-	tipo7.tipo = "vegetal";
-	tipo7.nomeAtaque1 = "folha navalha";
-	tipo7.nomeAtaque2 = "ataque de espinho";
-	tipo7.nomeAtaque3 = "raio solar";
-	tipo7.nomeAtaque4 = "semente da insonia";
+	tipo7.elemento = vegetal;
+	tipo7.poderes[0] = folha_navalha;
+	tipo7.poderes[1] = ataque_de_espinho;
+	tipo7.poderes[2] = raio_solar;
+	tipo7.poderes[3] = semente_da_insonia;
 
 	tipo8.nomeMonstro = "Frafdo";
 	tipo8.hp = 100;
 	tipo8.level = 50;
-	tipo8.tipo = "vegetal";
-	tipo8.nomeAtaque1 = "folha navalha";
-	tipo8.nomeAtaque2 = "ataque de espinho";
-	tipo8.nomeAtaque3 = "raio solar";
-	tipo8.nomeAtaque4 = "semente da insonia";
+	tipo8.elemento = vegetal;
+	tipo8.poderes[0] = folha_navalha;
+	tipo8.poderes[1] = ataque_de_espinho;
+	tipo8.poderes[2] = raio_solar;
+	tipo8.poderes[3] = semente_da_insonia;
 
 	tipo9.nomeMonstro = "Bylkian";
 	tipo9.hp = 100;
 	tipo9.level = 50;
-	tipo9.tipo = "raio";
-	tipo9.nomeAtaque1 = "choque do trovao";
-	tipo9.nomeAtaque2 = "investida relampago";
-	tipo9.nomeAtaque3 = "wave thunder";
-	tipo9.nomeAtaque4 = "whild charger";
+	tipo9.elemento = raio;
+	tipo9.poderes[0] = choque_do_trovao;
+	tipo9.poderes[1] = investida_relampago;
+	tipo9.poderes[2] = wave_thunder;
+	tipo9.poderes[3] = whild_charger;
 
 	tipo10.nomeMonstro = "Titanix";
 	tipo10.hp = 100;
 	tipo10.level = 50;
-	tipo10.tipo = "raio";
-	tipo10.nomeAtaque1 = "choque do trovao";
-	tipo10.nomeAtaque2 = "investida relampago";
-	tipo10.nomeAtaque3 = "wave thunder";
-	tipo10.nomeAtaque4 = "whild charger";
+	tipo10.elemento = raio;
+	tipo10.poderes[0] = choque_do_trovao;
+	tipo10.poderes[1] = investida_relampago;
+	tipo10.poderes[2] = wave_thunder;
+	tipo10.poderes[3] = whild_charger;
 
 
 #endif
