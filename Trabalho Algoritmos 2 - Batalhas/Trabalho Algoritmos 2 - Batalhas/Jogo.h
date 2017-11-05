@@ -8,6 +8,11 @@
 #include "Console.h"
 #include "IAInimigosTabuleiro.h"
 
+void jogo_inicializaMonstrosJogador()
+{
+
+}
+
 void iniciaJogo(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
 	bool jogando = true;

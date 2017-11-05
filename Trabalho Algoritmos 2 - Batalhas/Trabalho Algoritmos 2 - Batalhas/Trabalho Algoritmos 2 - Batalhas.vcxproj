@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="auxiliar.h" />
+    <ClInclude Include="botao.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="IAInimigosTabuleiro.h" />
     <ClInclude Include="Jogo.h" />

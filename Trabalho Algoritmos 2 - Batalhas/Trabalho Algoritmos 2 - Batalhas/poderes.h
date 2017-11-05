@@ -3,7 +3,6 @@
 #define PODERES_H
 #include <iostream>
 #include <string>
-#include "Tipos.h"
 using namespace std;
 
 struct poder{

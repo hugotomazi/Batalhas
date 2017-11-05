@@ -6,7 +6,6 @@
 #include <ctime>
 #include <random>
 #include <string>
-#include "mapa.h"
 using namespace std;
 
 template <typename TipoNumero>

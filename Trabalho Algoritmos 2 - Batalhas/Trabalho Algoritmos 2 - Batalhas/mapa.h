@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 #include "auxiliar.h"
+#include "Tipos.h"
+#include "poderes.h"
+#include "monstros.h"
+
 
 #define TAMANHO_MAPA_X 5
 #define TAMANHO_MAPA_Y 5
@@ -26,6 +30,8 @@ struct Mapa {
 	int ocupadorPosicaoTemporario;
 	//-1 - vazio
 	int rastro;
+
+	monstro monstros[2];
 };
 
 
@@ -177,6 +183,29 @@ void mapa_gerarMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 {
 	int medianaX = mediana(TAMANHO_MAPA_X), 
 		medianaY = mediana(TAMANHO_MAPA_Y);
+	monstro
+		tangath_toborn,
+		maxxor,
+		intress,
+		rellim,
+		donmar,
+		intress2,
+		ekuud,
+		frafdo,
+		bylkian,
+		titanix;
+
+	monstro_inicializarMonstro(
+		tangath_toborn,
+		maxxor,
+		intress,
+		rellim,
+		donmar,
+		intress2,
+		ekuud,
+		frafdo,
+		bylkian,
+		titanix);
 
 	for (int i = 0; i < TAMANHO_MAPA_X; i++)
 	{
@@ -185,6 +214,9 @@ void mapa_gerarMapa(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y])
 			if (i == medianaX && j == medianaY)
 			{
 				mapa[i][j].ocupadorPosicao = 1;
+
+				mapa[i][j].monstros[0] = maxxor;
+				mapa[i][j].monstros[1] = frafdo;
 			}
 			else {
 				mapa[i][j].ocupadorPosicao = 0;

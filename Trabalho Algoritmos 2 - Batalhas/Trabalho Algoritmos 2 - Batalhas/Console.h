@@ -5,9 +5,6 @@
 #include <iostream>
 #include <string>
 #include "mapa.h"
-//#include <Windows.h>
-//#include "conio.h"
-
 using namespace std;
 
 void console_exibeTabuleiro(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)
@@ -44,6 +41,17 @@ void console_exibeTabuleiro(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int ident
 	
 }
 
+void console_exibeTelaLuta()
+{
+	cout << (char)218;
+	for (int i = 0; i < 30; ++i)
+	{
+		cout << (char)196;
+	}
+	cout << (char)191 << endl;
+	cout << "Jogador\t\t\t\t\t\t";
+}
+
 void console_iniciaBatalha(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)
 {
 	console_exibeTabuleiro(mapa, identificadorInimigo);
@@ -57,4 +65,6 @@ void console_iniciaBatalha(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identi
 	_sleep(800);
 	//system("Color ");
 }
+
+
 #endif

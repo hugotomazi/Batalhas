@@ -1,6 +1,7 @@
 #pragma once
 #ifndef MONSTROS_H
 #define MONSTROS_H
+
 #include <iostream>
 #include <string>
 #include "Tipos.h"
@@ -15,18 +16,19 @@ struct monstro{
 	poder poderes[4];
 };
 
-void monstro_inicializarmonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, monstro &tipo4, monstro &tipo5, monstro &tipo6, monstro &tipo7, monstro &tipo8, monstro &tipo9, monstro &tipo10)
+void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, monstro &tipo4, monstro &tipo5, monstro &tipo6, monstro &tipo7, monstro &tipo8, monstro &tipo9, monstro &tipo10)
 {
-	
+
 	Tipo fogo, agua, vegetal, raio;
 
 	poder bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas; //Tipos fogo
-	poder jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica; //Tipos água
+	poder jato_de_agua, bomba_de_agua, hiper_bomba_aquatica; //Tipos água
 	poder folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia; //Tipos vegetais
 	poder choque_do_trovao, investida_relampago, wave_thunder, whild_charger; //Tipos trovão
 
-	poder_inicializarPoder(bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas, jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica, folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia, choque_do_trovao, investida_relampago, wave_thunder, whild_charger);
 	tipo_inicializarTipos(fogo, agua, vegetal, raio);
+	poder_inicializarPoder(bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas, jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica, folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia, choque_do_trovao, investida_relampago, wave_thunder, whild_charger);
+
 	tipo1.nomeMonstro = "Tangath Toborn";
 	tipo1.hp = 100;
 	tipo1.level = 50;
@@ -116,6 +118,6 @@ void monstro_inicializarmonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo10.poderes[1] = investida_relampago;
 	tipo10.poderes[2] = wave_thunder;
 	tipo10.poderes[3] = whild_charger;
-
+}
 
 #endif
