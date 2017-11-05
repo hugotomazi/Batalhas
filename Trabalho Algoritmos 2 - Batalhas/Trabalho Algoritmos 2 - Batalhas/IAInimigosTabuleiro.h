@@ -81,7 +81,7 @@ void movimentaInimigoAleatoriamente(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], M
 	{
 		int x = -1,
 			y = -1,
-			condicaoAleatoria = numeroAleatoio(1, 4);
+			condicaoAleatoria = numeroAleatorio(1, 4);
 		bool checador = true;
 		converteIJ(celulaInimigo.posicaoCelula, TAMANHO_MAPA_X, TAMANHO_MAPA_Y, x, y);
 		while (checador)
@@ -122,7 +122,7 @@ void movimentaInimigoAleatoriamente(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], M
 				celulaInimigo.ocupadorPosicao = 0;
 				checador = false;
 			}
-			condicaoAleatoria = numeroAleatoio(1, 4);
+			condicaoAleatoria = numeroAleatorio(1, 4);
 		}
 	}
 }

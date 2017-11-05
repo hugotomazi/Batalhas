@@ -26,7 +26,7 @@ void tipo_inicializarTipos(Tipo &tipo1, Tipo &tipo2, Tipo &tipo3, Tipo &tipo4)
 	tipo1.identificadorVantagem = 3;
 
 	tipo2.identificador = 2;
-	tipo2.nome = "Água";
+	tipo2.nome = "Agua";
 	tipo2.identificadorDesvantagem = 3;
 	tipo2.identificadorVantagem = 1;
 

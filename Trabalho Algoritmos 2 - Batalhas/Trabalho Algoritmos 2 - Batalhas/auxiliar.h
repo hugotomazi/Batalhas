@@ -9,7 +9,7 @@
 using namespace std;
 
 template <typename TipoNumero>
-TipoNumero numeroAleatoio(TipoNumero minimo, TipoNumero maximo)
+TipoNumero numeroAleatorio(TipoNumero minimo, TipoNumero maximo)
 {
 	return rand() % (maximo - minimo + 1) + minimo;
 }

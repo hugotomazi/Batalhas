@@ -12,6 +12,7 @@
 #include "Jogo.h"
 #include "mapa.h"
 #include "botao.h"
+#include "Jogadores.h"
 
 using namespace std;
 
@@ -36,6 +37,7 @@ int main()
 	btn[1].selecionado = false;
 	btn[1].textoExibicao = "Finalizar Jogo";
 	botao_exibirMenu(btn, 2, "Bem-vindo ao Caotic! O que deseja fazer?");
+
 	int tecla = getch();
 	while (tecla != 13)
 	{

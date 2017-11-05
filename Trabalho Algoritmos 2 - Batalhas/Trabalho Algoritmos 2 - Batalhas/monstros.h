@@ -9,12 +9,24 @@
 using namespace std;
 
 struct monstro{
+	int identificador;
 	string nomeMonstro;
 	int hp;
 	int level;
 	Tipo elemento;
 	poder poderes[4];
 };
+
+monstro monstro_setaMonstroPorId(monstro monstros[], int quantidadeMonstros, int identificador)
+{
+	for (int i = 0; i < quantidadeMonstros; i++)
+	{
+		if (monstros[i].identificador == identificador)
+		{
+			return monstros[i];
+		}
+	}
+}
 
 void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, monstro &tipo4, monstro &tipo5, monstro &tipo6, monstro &tipo7, monstro &tipo8, monstro &tipo9, monstro &tipo10)
 {
@@ -29,6 +41,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo_inicializarTipos(fogo, agua, vegetal, raio);
 	poder_inicializarPoder(bola_de_fogo, chama_nenem, mega_blaster, tornado_de_chamas, jato_de_agua, bomba_de_agua, mega_blaster, hiper_bomba_aquatica, folha_navalha, ataque_de_espinho, raio_solar, semente_da_insonia, choque_do_trovao, investida_relampago, wave_thunder, whild_charger);
 
+	tipo1.identificador = 1;
 	tipo1.nomeMonstro = "Tangath Toborn";
 	tipo1.hp = 100;
 	tipo1.level = 50;
@@ -38,6 +51,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo1.poderes[2] = mega_blaster;
 	tipo1.poderes[3] = tornado_de_chamas;
 
+	tipo2.identificador = 2;
 	tipo2.nomeMonstro = "Maxxor";
 	tipo2.hp = 100;
 	tipo2.level = 50;
@@ -47,6 +61,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo2.poderes[2] = mega_blaster;
 	tipo2.poderes[3] = tornado_de_chamas;
 
+	tipo3.identificador = 3;
 	tipo3.nomeMonstro = "Intress";
 	tipo3.hp = 100;
 	tipo3.level = 50;
@@ -56,6 +71,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo3.poderes[2] = mega_blaster;
 	tipo3.poderes[3] = hiper_bomba_aquatica;
 
+	tipo4.identificador = 4;
 	tipo4.nomeMonstro = "Rellim";
 	tipo4.hp = 100;
 	tipo4.level = 50;
@@ -65,6 +81,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo4.poderes[2] = mega_blaster;
 	tipo4.poderes[3] = hiper_bomba_aquatica;
 
+	tipo5.identificador = 5;
 	tipo5.nomeMonstro = "Donmar";
 	tipo5.hp = 100;
 	tipo5.level = 50;
@@ -74,6 +91,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo5.poderes[2] = raio_solar;
 	tipo5.poderes[3] = semente_da_insonia;
 
+	tipo6.identificador = 6;
 	tipo6.nomeMonstro = "Intress";
 	tipo6.hp = 100;
 	tipo6.level = 50;
@@ -83,6 +101,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo6.poderes[2] = raio_solar;
 	tipo6.poderes[3] = semente_da_insonia;
 
+	tipo7.identificador = 7;
 	tipo7.nomeMonstro = "Ekuud";
 	tipo7.hp = 100;
 	tipo7.level = 50;
@@ -92,6 +111,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo7.poderes[2] = raio_solar;
 	tipo7.poderes[3] = semente_da_insonia;
 
+	tipo8.identificador = 8;
 	tipo8.nomeMonstro = "Frafdo";
 	tipo8.hp = 100;
 	tipo8.level = 50;
@@ -101,6 +121,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo8.poderes[2] = raio_solar;
 	tipo8.poderes[3] = semente_da_insonia;
 
+	tipo9.identificador = 9;
 	tipo9.nomeMonstro = "Bylkian";
 	tipo9.hp = 100;
 	tipo9.level = 50;
@@ -110,6 +131,7 @@ void monstro_inicializarMonstro(monstro &tipo1, monstro &tipo2, monstro &tipo3, 
 	tipo9.poderes[2] = wave_thunder;
 	tipo9.poderes[3] = whild_charger;
 
+	tipo10.identificador = 10;
 	tipo10.nomeMonstro = "Titanix";
 	tipo10.hp = 100;
 	tipo10.level = 50;

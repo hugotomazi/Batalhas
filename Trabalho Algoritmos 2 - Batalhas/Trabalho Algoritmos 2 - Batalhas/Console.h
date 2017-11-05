@@ -5,6 +5,8 @@
 #include <iostream>
 #include <string>
 #include "mapa.h"
+#include "Jogadores.h"
+#include "botao.h"
 using namespace std;
 
 void console_exibeTabuleiro(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)
@@ -41,15 +43,19 @@ void console_exibeTabuleiro(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int ident
 	
 }
 
-void console_exibeTelaLuta()
+void console_exibeTelaLuta(Jogador jogador, Jogador inimigo, int monstroJogador, int monstroInimigo)
 {
-	cout << (char)218;
+	/*cout << (char)218;
 	for (int i = 0; i < 30; ++i)
 	{
 		cout << (char)196;
 	}
-	cout << (char)191 << endl;
-	cout << "Jogador\t\t\t\t\t\t";
+	cout << (char)191 << endl;*/
+	cout << jogador.nome << "\t\t\t\t\t\t" << inimigo.nome << endl;
+	cout << "Nivel: " << jogador.nivel << "\t\t\t\t\t\tNivel: " << inimigo.nivel << endl << endl;
+	cout << "Monstro: " << jogador.monstros[monstroJogador].nomeMonstro << "\t\t\t\t\tMonstro: " << inimigo.monstros[monstroInimigo].nomeMonstro << endl;
+	cout << "Vida: " << jogador.monstros[monstroJogador].hp << " %\t\t\t\t\t\tVida: " << inimigo.monstros[monstroInimigo].hp << " %" << endl;
+	cout << "Tipo: " << jogador.monstros[monstroJogador].elemento.nome << "\t\t\t\t\t\tTipo: " << inimigo.monstros[monstroInimigo].elemento.nome << endl << endl;
 }
 
 void console_iniciaBatalha(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)

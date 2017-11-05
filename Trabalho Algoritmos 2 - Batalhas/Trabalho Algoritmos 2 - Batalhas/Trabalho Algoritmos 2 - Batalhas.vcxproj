@@ -142,6 +142,7 @@
     <ClInclude Include="botao.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="IAInimigosTabuleiro.h" />
+    <ClInclude Include="Jogadores.h" />
     <ClInclude Include="Jogo.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="monstros.h" />

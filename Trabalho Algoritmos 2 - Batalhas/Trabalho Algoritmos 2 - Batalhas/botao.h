@@ -24,8 +24,6 @@ string preencheEspacoVazio(int tamanho)
 	return texto;
 }
 
-
-
 int botao_retornarSelecionado(Botao botoes[], int quantidadeBotoes)
 {
 	for (int i = 0; i < quantidadeBotoes; ++i)
