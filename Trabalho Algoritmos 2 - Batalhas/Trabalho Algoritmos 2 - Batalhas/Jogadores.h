@@ -13,6 +13,58 @@ struct Jogador {
 	int nivel;
 };
 
+int jogador_atribuiMonstroInicial(Jogador jogador)
+{
+	for (int i = 0; i < 2; i++)
+	{
+		if (jogador.monstros[i].hp > 0)
+			return i;
+	}
+	
+	return -1;
+}
+
+int jogador_trocarMonstro(Jogador jogador, int monstroAtual)
+{
+	for (int i=0;i<2;i++)
+	{
+		if (jogador.monstros[i].hp > 0 && i != monstroAtual)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+void jogador_resetaMonstros(Jogador &jogador)
+{
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			jogador.monstros[i].hp = 100;
+			jogador.monstros[i].poderes[j].auxTurnoAtaque = -1;
+			jogador.monstros[i].poderes[j].disponivel = true;
+			jogador.monstros[i].poderes[j].auxQuantidadeVezesUso = 0;
+		}
+	}
+}
+
+void jogador_atualizaEstatisticasTurno(Jogador &jogador, int turnoAtual)
+{
+	for (int i = 0; i < 2; i++)
+	{
+		for (int j = 0; j < 4; j++)
+		{
+			int teste = turnoAtual - jogador.monstros[i].poderes[j].auxTurnoAtaque;
+			if (((teste) >= jogador.monstros[i].poderes[j].turnoAtaque) && !jogador.monstros[i].poderes[j].disponivel)
+			{
+				jogador.monstros[i].poderes[j].disponivel = true;
+			}
+		}
+	}
+}
+
 void jogadores_inicializarJogadores(Jogador &player, Jogador &inimigo1, Jogador &inimigo2, Jogador &inimigo3, Jogador &inimigo4)
 {
 	monstro

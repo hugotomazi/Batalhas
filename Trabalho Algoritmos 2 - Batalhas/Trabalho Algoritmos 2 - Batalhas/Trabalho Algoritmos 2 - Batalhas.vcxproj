@@ -144,6 +144,7 @@
     <ClInclude Include="IAInimigosTabuleiro.h" />
     <ClInclude Include="Jogadores.h" />
     <ClInclude Include="Jogo.h" />
+    <ClInclude Include="LogBatalhas.h" />
     <ClInclude Include="mapa.h" />
     <ClInclude Include="monstros.h" />
     <ClInclude Include="poderes.h" />

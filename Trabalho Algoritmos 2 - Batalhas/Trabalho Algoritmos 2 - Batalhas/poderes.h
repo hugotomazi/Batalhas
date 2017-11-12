@@ -11,8 +11,13 @@ struct poder{
 	int dano;
 	int danoVantagem;
 	int danoDesvantagem;
+
 	int turnoAtaque;
+	int auxTurnoAtaque = -1;
+
 	int quantidadeVezesUso;
+	int auxQuantidadeVezesUso = 0;
+	bool disponivel = true;
 };
 
 void poder_inicializarPoder(poder &tipo1, poder &tipo2, poder &tipo3, poder &tipo4, poder &tipo5, poder &tipo6, poder &tipo7, poder &tipo8, poder &tipo9, poder &tipo10, poder &tipo11, poder &tipo12, poder &tipo13, poder &tipo14, poder &tipo15, poder &tipo16)
@@ -56,7 +61,7 @@ void poder_inicializarPoder(poder &tipo1, poder &tipo2, poder &tipo3, poder &tip
 	tipo5.quantidadeVezesUso = 10;
 	tipo5.danoVantagem = 10;
 	tipo5.danoDesvantagem = 10;
-	tipo2.turnoAtaque = 1;
+	tipo5.turnoAtaque = 1;
 
 	tipo6.identificador = 2;
 	tipo6.nomeAtaque = "Bomba de Agua";
@@ -133,7 +138,7 @@ void poder_inicializarPoder(poder &tipo1, poder &tipo2, poder &tipo3, poder &tip
 	tipo15.identificador = 4;
 	tipo15.nomeAtaque = "Wave Thunder";
 	tipo15.dano = 40;
-	tipo16.quantidadeVezesUso = 3;
+	tipo15.quantidadeVezesUso = 3;
 	tipo15.danoVantagem = 10;
 	tipo15.danoDesvantagem = 10;
 	tipo15.turnoAtaque = 2;

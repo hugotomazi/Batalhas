@@ -56,6 +56,7 @@ void console_exibeTelaLuta(Jogador jogador, Jogador inimigo, int monstroJogador,
 	cout << "Monstro: " << jogador.monstros[monstroJogador].nomeMonstro << "\t\t\t\t\tMonstro: " << inimigo.monstros[monstroInimigo].nomeMonstro << endl;
 	cout << "Vida: " << jogador.monstros[monstroJogador].hp << " %\t\t\t\t\t\tVida: " << inimigo.monstros[monstroInimigo].hp << " %" << endl;
 	cout << "Tipo: " << jogador.monstros[monstroJogador].elemento.nome << "\t\t\t\t\t\tTipo: " << inimigo.monstros[monstroInimigo].elemento.nome << endl << endl;
+	
 }
 
 void console_iniciaBatalha(Mapa mapa[TAMANHO_MAPA_X][TAMANHO_MAPA_Y], int identificadorInimigo)

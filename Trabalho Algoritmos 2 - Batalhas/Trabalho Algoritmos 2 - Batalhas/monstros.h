@@ -6,6 +6,7 @@
 #include <string>
 #include "Tipos.h"
 #include "poderes.h"
+#include "LogBatalhas.h"
 using namespace std;
 
 struct monstro{
@@ -16,6 +17,51 @@ struct monstro{
 	Tipo elemento;
 	poder poderes[4];
 };
+
+bool monstros_recebeAtaque(monstro &monstroReceptor, monstro &monstroEmissor, poder &ataqueUtilizado, bool &venceuBatalha, int turnoAtual)
+{
+	int vidaPerdida = 0;
+	if (ataqueUtilizado.auxQuantidadeVezesUso >= ataqueUtilizado.quantidadeVezesUso)
+	{
+		logbatalhas_escreverLog("Este ataque nao pode mais ser utilizado!");
+		return false;
+	}
+	
+	if (!ataqueUtilizado.disponivel)
+	{
+		logbatalhas_escreverLog("Este ataque esta em espera! Tente no proximo turno.");
+		return false;
+	}
+
+	if (monstroReceptor.elemento.identificadorDesvantagem == monstroEmissor.elemento.identificador)
+	{
+		vidaPerdida = (ataqueUtilizado.danoVantagem + ataqueUtilizado.dano);
+		monstroReceptor.hp -= (ataqueUtilizado.danoVantagem + ataqueUtilizado.dano);
+		
+	}
+	else
+	{
+		vidaPerdida = ataqueUtilizado.dano;
+		monstroReceptor.hp -= (ataqueUtilizado.dano);
+	}
+
+	if (monstroReceptor.hp <= 0)
+	{ 
+		venceuBatalha = true;
+		logbatalhas_escreverLog(monstroReceptor.nomeMonstro + " levou um ataque fatal! O vencedor e " + monstroEmissor.nomeMonstro + ".");
+	}
+	else {
+		venceuBatalha = false;
+		char buffer[11];
+		itoa(vidaPerdida, buffer, 10);
+		logbatalhas_escreverLog(monstroReceptor.nomeMonstro + " levou o ataque " + ataqueUtilizado.nomeAtaque + " de " + monstroEmissor.nomeMonstro + " e perdeu " + buffer + " de Vida!");
+		
+		ataqueUtilizado.auxQuantidadeVezesUso++;
+		ataqueUtilizado.auxTurnoAtaque = turnoAtual;
+		ataqueUtilizado.disponivel = false;
+	}
+	return true;
+}
 
 monstro monstro_setaMonstroPorId(monstro monstros[], int quantidadeMonstros, int identificador)
 {
